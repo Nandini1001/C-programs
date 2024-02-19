@@ -1,0 +1,25 @@
+#include<stdio.h>
+void main()
+{
+int n,i;
+printf("Enter range of array");
+scanf("%d",&n);
+int a[n];
+for(i=0;i<n;i++)
+{
+printf("a[%d]=",i);
+scanf("%d",&a[i]);
+}
+if(n%2!=0)
+printf("Middle element is %d",a[n/2]);
+else
+printf("Middle elements are %d and %d",a[n/2-1],a[n/2]);
+}
+//OUTPUT
+Enter range of array 5
+a[0]=2
+a[1]=8
+a[2]=9
+a[3]=5
+a[4]=6
+Middle element is 9
