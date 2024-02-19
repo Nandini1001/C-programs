@@ -1,0 +1,34 @@
+#include<stdio.h>
+int input();
+int calc(int,int);
+void output(int);
+void main()
+{
+    int l,b,area;
+    printf("Enter length of rectangle");
+    l=input();
+    printf("Enter breadth of rectangle");
+    b=input();
+    area=calc(l,b);
+    output(area);
+}
+int input()
+{
+    int s;
+    scanf("%d",&s);
+    return s;
+}
+int calc(int l,int b)
+{
+    int ar;
+    ar=l*b;
+    return ar;
+}
+void output(int res)
+{
+    printf("Area of rectangle is %d",res);
+}
+//OUTPUT
+Enter length of rectangle 5
+Enter breadth of rectangle 6
+Area of rectangle is 30
