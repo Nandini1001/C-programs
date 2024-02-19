@@ -1,0 +1,26 @@
+#include<stdio.h>
+void binary(int);
+void main()
+{
+    int n;
+    printf("Enter a decimal number");
+    scanf("%d",&n);
+    binary(n);
+}
+void binary(int m)
+{
+    int a[20],i=0,k=0;
+    while(m>0)
+    {
+        a[i]=m%2;
+        m=m/2;
+        i++;
+        k++;
+    }
+    printf("Binary equivalent to decimal number is: ");
+    for(i=k-1 ;i>=0;i--)
+        printf("%d",a[i]);
+}
+//OUPUT
+Enter a decimal number5
+Binary equivalent to decimal number is: 101
