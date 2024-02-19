@@ -1,0 +1,36 @@
+#include<stdio.h>
+void main()
+{
+    int n;
+    printf("Enter range of array");
+    scanf("%d",&n);
+    int a[n],i,j,avg;
+    for(i=0;i<n;i++)
+    {
+        printf("a[%d]=",i);
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        printf("Factors of a[%d] are",i);
+        for(j=1;j<=a[i];j++)
+        {
+        if(a[i]%j==0)
+        printf("%d ",j);
+        }
+        printf("\n");
+    }
+
+}
+//OUTPUT
+Enter range of array 5
+a[0]=2
+a[1]=3
+a[2]=4
+a[3]=5
+a[4]=6
+Factors of a[0] are1 2
+Factors of a[1] are1 3
+Factors of a[2] are1 2 4
+Factors of a[3] are1 5
+Factors of a[4] are1 2 3 6
