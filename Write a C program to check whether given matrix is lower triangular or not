@@ -1,0 +1,47 @@
+#include<stdio.h>
+void main()
+{
+    int n,m,s=0;
+    printf("Enter rows and coloumns");
+    scanf("%d %d",&n,&m);
+    int a[n][m],i,j;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+            printf("a[%d][%d]=",i,j);
+            scanf("%d",&a[i][j]);
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+           if(i<j)
+           {
+             if(a[i][j]!=0)
+             {
+                s++;
+                break;
+             }
+           }
+        }
+    }
+    if(s==0)
+        printf("Matrix is lower triangular matrix");
+    else
+        printf("Matrix is not lower triangular matrix");
+}
+//OUTPUT
+Enter rows and coloumns3
+3
+a[0][0]=5
+a[0][1]=0
+a[0][2]=0
+a[1][0]=8
+a[1][1]=9
+a[1][2]=0
+a[2][0]=2
+a[2][1]=8
+a[2][2]=6
+Matrix is lower triangular matrix
