@@ -1,0 +1,32 @@
+#include<stdio.h>
+void main()
+{
+int n,i;
+printf("Enter range of array");
+scanf("%d",&n);
+int a[n];
+for(i=0;i<n;i++)
+{
+printf("a[%d]=",i);
+scanf("%d",&a[i]);
+}
+for(i=0;i<n;i++)
+{
+if(a[i]%2==0)
+a[i]=0;
+else
+a[i]=1;
+}
+printf("Array after replacing even element by 0 and odd element by 1 ");
+for(i=0;i<n;i++)
+printf("%d",a[i]);
+}
+//OUTPUT
+Enter range of array 6
+a[0]=7
+a[1]=8
+a[2]=5
+a[3]=8
+a[4]=9
+a[5]=2
+Array after replacing even element by 0 and odd element by 1 101010
