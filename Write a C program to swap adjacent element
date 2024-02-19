@@ -1,0 +1,30 @@
+#include<stdio.h>
+void main()
+{
+int n,i,t;
+printf("Enter range of array");
+scanf("%d",&n);
+int a[n];
+for(i=0;i<n;i++)
+{
+printf("a[%d]=",i);
+scanf("%d",&a[i]);
+}
+for(i=0;i<n/2;i+2)
+{
+t=a[i];
+a[i]=a[i+1];
+a[i+1]=t;
+}
+printf("Array after swapping adjacent elements ");
+for(i=0;i<n;i++)
+printf("%d",a[i]);
+}
+//OUTPUT
+Enter range of array 5
+a[0]=2
+a[1]=8
+a[2]=6
+a[3]=8
+a[4]=4
+Array after swapping adjacent elements 82864
