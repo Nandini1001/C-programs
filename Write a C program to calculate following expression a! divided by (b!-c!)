@@ -1,0 +1,24 @@
+#include<stdio.h>
+float fact(int);
+void main()
+{
+    int a,b,c;
+    float res;
+    printf("Enter three values");
+    scanf("%d%d%d",&a,&b,&c);
+    res=fact(a)/(fact(b)-fact(c));
+    printf("Result of the expression is %f",res);
+}
+float fact(int n)
+{
+    if(n==0||n==1)
+        return n;
+    else
+        return n*fact(n-1);
+}
+//OUTPUT
+Enter three values
+6
+5
+4
+Result of the expression is 7.500000
