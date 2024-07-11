@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *p;
+    char ch;
+    int c=0;
+    p=fopen("abc.txt","w+");
+    if(p==NULL)
+    {
+        return EXIT_FAILURE;
+    }
+    else
+    {
+        printf("Enter lines");
+       while((ch=getchar())!=EOF)
+       {
+           putc(ch,p);
+       }
+       
+       rewind(p);
+       while((ch=getc(p))!=EOF)
+       {
+           if(c==3)
+           return EXIT_SUCCESS;
+           printf("%c",ch);
+           if(ch==10)
+           c++;
+       }
+       fclose(p);
+    }
+}
