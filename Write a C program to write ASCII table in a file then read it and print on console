@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *p;
+    char ch;
+    p=fopen("abc.txt","w+");
+    if(p==NULL)
+    {
+        return EXIT_FAILURE;
+    }
+    else
+    {
+        int i;
+       for(i=32;i<128;i++)
+       {
+           fprintf(p,"%c=%d\n",i,i);
+       }
+       rewind(p);
+       while((ch=getc(p))!=EOF)
+       {
+           printf("%c",ch);
+       }
+       fclose(p);
+    }
+}
