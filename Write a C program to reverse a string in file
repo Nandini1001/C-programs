@@ -1,0 +1,37 @@
+#include <stdio.h>
+void main()
+{
+    FILE *fp;
+    char ch,rw,rt;
+    int c=0,i=0;
+    fp=fopen("abc.txt","w+");
+    if(fp==NULL)
+    {
+        printf("Not open");
+    }
+    else
+    {
+        while((ch=getchar())!=EOF)
+        {    
+            fputc(ch,fp);
+            c++;
+        }
+        char a[c+1]; 
+        rewind(fp);
+        while((ch=getc(fp))!=EOF)
+        {
+            a[i]=ch;
+            printf("%c",a[i]);
+            i++;
+            
+        }
+        a[i]=0;
+        fclose(fp);
+        fp=fopen("abc.txt","w");
+        {
+            for(i=c-1;i>=0;i--)
+             fputc(a[i],fp);
+        }
+        fclose(fp);
+    }
+}
