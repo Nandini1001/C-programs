@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdlib.h>
+void freq(int [],int);
+void main()
+{
+    int i,c,j,k,n,*p;
+    scanf("%d",&n);
+    p=(int*)(malloc(n*sizeof(int)));
+    if(p==NULL)
+        printf("Memory not allocated");
+    else
+    {
+        for(i=0;i<n;i++)
+            scanf("%d",(p+i));
+        for(i=0;i<n;i++)
+        {
+            c=1;
+            for(j=i+1;j<n;j++)
+            {
+                if(*(p+i)==*(p+j))
+                {
+                    for(k=j;k<n;k++)
+                        *(p+k)=*(p+k+1);
+                    c++;
+                    j--;
+                }
+            }
+            printf("%d=%d",*(p+i),c);
+
+        }
+    }
+}
