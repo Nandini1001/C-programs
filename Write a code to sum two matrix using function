@@ -1,0 +1,45 @@
+#include <stdio.h>
+void sum(int [][30],int [][30],int,int);
+void main() {
+    int n,m,j;
+    scanf("%d%d",&n,&m);
+    int a[30][30],b[30][30],i,s=0;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+        printf("Enter a[%d][%d]",i,j);
+        scanf("%d",&a[i][j]);
+        }
+    }
+        for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+        printf("Enter b[%d][%d]",i,j);
+        scanf("%d",&b[i][j]);
+        }
+    }
+    sum(a,b,n,m);
+
+}
+void sum(int a[][30],int b[][30],int n,int m)
+{
+    int i,j,c[n][m];
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+        c[i][j]=a[i][j]+b[i][j];
+        }
+    }
+     for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+        printf("%d ",c[i][j]);
+        }
+        printf("\n");
+    }
+
+}
