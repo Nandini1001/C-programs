@@ -1,0 +1,29 @@
+#include<stdio.h>
+void main()
+{
+    int n,i,sma,smi,mai=0,mii=0;
+    scanf("%d",&n);
+    struct book
+    {
+        char na[100],au[100];
+        int pr;
+    }b[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%s",b[i].na);
+        scanf("%s",b[i].au);
+        scanf("%d",&b[i].pr);}
+        sma=b[0].pr;
+        smi=b[0].pr;
+     for(i=1;i<n;i++)
+     {
+        if(sma<b[i].pr)
+            {sma=b[i].pr;
+            mai=i;}
+        if(smi>b[i].pr)
+            {smi=b[i].pr;
+            mii=i;}
+    }
+    printf("Highest %s",b[mai].na);
+    printf("Lowest %s",b[mii].na);
+}
