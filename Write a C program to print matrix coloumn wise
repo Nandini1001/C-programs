@@ -19,6 +19,7 @@ void main()
         {
             printf("%d ",a[j][i]);
         }
+        printf("\n");
     }
 }
 //OUTPUT
@@ -33,4 +34,6 @@ Enter a[1][2]6
 Enter a[2][0]2
 Enter a[2][1]2
 Enter a[2][2]8
-2 8 2 9 4 2 5 6 8
+2 8 2 
+9 4 2 
+5 6 8
