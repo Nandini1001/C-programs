@@ -1,0 +1,25 @@
+#include <stdio.h>
+void main()
+{
+    FILE *p;
+    p=fopen("Data.txt", "w+");
+    if(p!=NULL)
+    {
+        char n[50];
+        int pr,q,id,na,i;
+        scanf("%d",&na);
+        for(i=0;i<na;i++)
+        {
+            getchar();
+            gets(n);
+            scanf("%d%d%d",&pr,&q,&id);
+            fprintf(p, "%s %d %d %d ",n,pr,q,id);
+        }
+        rewind(p);
+        for(i=0;i<na;i++)
+        {
+            fscanf(p, "%s %d %d %d ",n,&pr, &q, &id);
+            printf("%s %d %d \n",n,pr*q,id);
+        }
+    }
+}
