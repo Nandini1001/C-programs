@@ -1,0 +1,42 @@
+#include<stdio.h>
+void unique(int [],int);
+void main()
+{
+    int n;
+    printf("\t*****INPUT*****\n");
+    printf("Input the number of elements to be stored in the array: ");
+    scanf("%d",&n);
+    int a[n],i;
+    printf("Input %d elements in the array: \n",n);
+    for(i=0;i<n;i++)
+    {
+        printf("Element-%d:",i+1);
+        scanf("%d",&a[i]);
+    }
+    printf("\t*****OUTPUT*****\n");
+    unique(a,n);
+}
+void unique(int b[],int n)
+{
+    int i,j,k=0,m;
+    printf("Unique elements found in the array are: ");
+    for(i=0;i<n;i++)
+    {
+        k=0;
+        for(j=i+1;j<n;j++)
+        {
+            if(b[i]==b[j])
+            {
+                k++;
+                for(m=j;m<n;m++)
+                    b[m]=b[m+1];
+                n--;
+                j--;
+            }
+        }
+        if(k==0)
+        {
+            printf("%d ",b[i]);
+        }
+    }
+}
