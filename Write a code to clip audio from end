@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *sfp,*dfp;
+    char ch;
+    int sec,esec;
+    long int len,psb;
+    scanf("%d",&sec);
+    scanf("%d",&esec);
+    dfp=fopen("E:\\5.mp3","wb");
+    if(dfp==NULL)
+    {
+        printf("File not open");
+        return EXIT_FAILURE;
+    }
+    sfp=fopen("E:\\4.mp3","rb");
+    if(sfp==NULL)
+    {
+        printf("File not open");
+        return EXIT_FAILURE;
+    }
+    else
+    {
+        fseek(sfp,0,2);
+        len=ftell(sfp);
+        printf("%ld",len);
+        psb=len/sec;
+        rewind(sfp);
+        while(1)
+        {
+            ch=fgetc(sfp);
+            if(ftell(sfp)==psb*(sec-esec))
+                break;
+            fputc(ch,dfp);
+        }
+        printf("Clipped successfully");
+        fclose(sfp);
+    }
+    fclose(dfp);
+    return EXIT_SUCCESS;
+}
+
