@@ -1,0 +1,30 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p;
+    int i=0,c=0;
+    char a[100],ch;
+    p=fopen("Data.txt","w+");
+    if(p!=NULL)
+    {
+        while((ch=getchar())!=EOF)
+        {
+            fputc(ch,p);
+        }
+        rewind(p);
+        while((ch=fgetc(p))!=EOF)
+        {
+           a[i]=ch;
+           i++;
+        }
+        a[i]=0;
+        if(a[i]!=32)
+            c++;
+        for(i=0;a[i]!=0;i++)
+        {
+            if(a[i]==32&&a[i+1]!=32&&a[i+1]!=0)
+            c++;
+        }
+        printf("%c",c);
+    }
+}
