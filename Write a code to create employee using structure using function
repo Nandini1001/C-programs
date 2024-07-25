@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<string.h>       //designation not printing
+struct employee
+{
+    char n[50],d[50];
+    long int id,s;
+};
+void salary(struct employee[]);
+void designation(struct employee[]);
+void inc(struct employee[]);
+void main()
+{
+    struct employee e[3];
+    int i;
+    for(i=0;i<3;i++)
+    {
+        printf("Enter details of employee %d",i+1);
+        gets(e[i].n);
+        getchar();
+        gets(e[i].d);
+        scanf("%ld",&e[i].id);
+        scanf("%ld",&e[i].s);
+        getchar();
+    }
+    salary(e);
+    designation(e);
+    inc(e);
+}
+void salary(struct employee e[])
+{
+    int i;
+    printf("Salaray greater tha 80000 is: ");
+    for(i=0;i<3;i++)
+    {
+        if(e[i].s>80000)
+        {
+            puts(e[i].n);
+            puts(e[i].d);
+            printf("%ld\n",e[i].id);
+        }
+    }
+}
+void designation(struct employee e[])
+{
+    char a[]="Manager";
+    int i;
+    printf("\nDesignation: ");
+    for(i=0;i<3;i++)
+    {
+        if(strcmp(e[i].d,a)==0)
+        {
+           puts(e[i].n);
+            puts(e[i].d);
+
+            printf("%ld\n",e[i].id);
+        }
+    }
+}
+void inc(struct employee e[])
+{
+    int i,j;
+    struct employee t;
+    printf("\nIncreasing order is: ");
+    for(i=0;i<3;i++)
+    {
+        for(j=i+1;j<3;j++)
+        {
+            if(e[i].s>e[j].s)
+            {
+                t=e[i];
+                e[i]=e[j];
+                e[j]=t;
+            }
+        }
+    }
+    for(i=0;i<3;i++)
+    {
+        puts(e[i].n);
+            puts(e[i].d);
+            printf("%ld\n",e[i].id);
+    }
+}
