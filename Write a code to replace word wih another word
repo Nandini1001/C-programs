@@ -1,0 +1,52 @@
+//not working
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+    char a[50],b[50],c[50];
+    int lb,z,lc,k,m;
+    printf("\t Enter the string \n");
+    gets(a);
+    printf("\t Enter the  substring to be replaced \n");
+    gets(b);
+    printf("\t Enter the  substring to be replaced with \n");
+    gets(c);
+    lb=strlen(b);
+    lc=strlen(c);
+    for(int i=0;a[i]!=0;i++)
+    {
+        z=1;
+        if(a[i]==b[0])
+        {
+            for(int j=1;b[j]!=0;j++)
+            {
+                if(a[i+j]==b[j])
+                {
+                    z++;
+                }
+            }
+            if(z==lb)
+            {
+                printf("\t the substring is found \n");
+                break;
+            }
+        }
+    }
+    if(z==1)
+    {
+          printf("\t the substring is NOT found \n");
+    }
+    else
+    {
+        printf("%d",lb);
+        if(lb==lc)
+        {
+            for(m=0 ;b[m]!=0&&b[m]!=32;k++,m++)
+            a[k]=c[m];
+            printf("%d",lb);
+        }
+    }
+    puts(c);
+    return 0;
+}
+
