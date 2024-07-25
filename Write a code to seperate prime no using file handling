@@ -1,0 +1,49 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p,*q,*r;
+    p=fopen("Data.txt","w+");
+    q=fopen("prime.txt","w+");
+    r=fopen("nonprime.txt","w+");
+    if(p!=NULL&&q!=NULL&&r!=NULL)
+    {
+        int n,i,num,s,j;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&num);
+            fprintf(p,"%d ",num);
+        }
+        rewind(p);
+        for(i=0;i<n;i++)
+        {
+            s=0;
+            fscanf(p,"%d",&num);
+
+                for(j=2;j<=num/2;j++)
+                {
+                    if(num%j==0)
+                    {
+                        s++;
+                        break;
+                    }
+                }
+                if(s==0)
+                    fprintf(r,"%d ",num);
+                else
+                    fprintf(q,"%d ",num);
+        }
+
+        rewind(q);
+        rewind(r);
+        while((fscanf(r,"%d",&num))!=EOF)
+            printf("%d ",num);
+        while((fscanf(p,"%d",&num))!=EOF)
+            printf("%d ",num);
+    }
+    else
+        printf("Error");
+
+    fclose(p);
+    fclose(q);
+}
