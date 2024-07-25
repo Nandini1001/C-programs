@@ -1,0 +1,74 @@
+#include<stdio.h>
+struct employee  //print record if salary>80000
+{
+    char n[50],d[50];
+    long int id,s;
+};
+int salary (long int);
+void main()
+{
+    struct employee e[3];
+    int i,c,j;
+    for(i=0;i<3;i++)
+    {
+        printf ("Enter details of employee %d", i+1);
+        gets (e[i].n);
+        getchar();
+        gets(e[i].d);
+        scanf("%ld",&e[1].id);
+        scanf("%ld",&e[i].s);
+        getchar();
+    }
+    for (i=0;i<3;i++)
+    {
+        c=salary(e[i].s);
+        if (c==1)
+        {
+            j=i;
+
+                puts(e[j].n);
+                puts (e[j].d);
+                printf("%ld\n",e[j].id);
+
+        }
+    }
+}
+int salary (long int sa)
+{
+    if(sa>80000)
+        return 1;
+}
+
+//passing structure
+#include<stdio.h>
+struct employee  //print record in display function
+{
+    char n[50],d[50];
+    long int id,sa;
+};
+void display(struct employee);
+void main()
+{
+    struct employee e;
+    int i,c,j;
+
+        printf ("Enter details of employee ");
+        gets (e.n);
+        getchar();
+        gets(e.d);
+        scanf("%ld",&e.id);
+        scanf("%ld",&e.sa);
+        getchar();
+        display(e);
+
+}
+void display(struct employee s)
+{
+    puts(s.n);
+    puts (s.d);
+    printf("%ld\n",s.id);
+    printf("%ld\n",s.sa);
+
+}
+
+
