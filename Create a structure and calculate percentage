@@ -1,0 +1,31 @@
+#include<stdio.h>
+void main()
+{
+    int i,j,sum;
+    struct student
+    {
+        char name[20],sec;
+        int rollno,mrk[4];
+        //float per;
+    }s[3];
+    for(i=0;i<3;i++)
+    {
+        sum=0;
+        printf("Enter name ");
+        gets(s[i].name);
+        fflush(stdin);
+        printf("Enter section and rollno ");
+        scanf("%c%d",&s[i].sec,&s[i].rollno);
+        printf("Enter 4 subject marks ");
+        for(j=0;j<4;j++)
+        {
+           scanf("%d",&s[i].mrk[j]);
+           sum=sum+s[i].mrk[j];
+        }
+        fflush(stdin);
+        printf("Percentage is ");
+        //s[i].per=sum/4.0;
+        //printf("%f\n",s[i].per);
+        printf("%f\n",sum/4.0);
+    }
+}
