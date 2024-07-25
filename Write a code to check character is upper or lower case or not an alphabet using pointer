@@ -1,0 +1,16 @@
+#include<stdio.h>
+void main()
+{
+    char k,*p=&k;
+    printf("Enter a character");
+    scanf("%c",p);
+    if((*p>='a'&&*p<='z')||(*p>='A'&&*p<='Z'))
+    {
+       if(*p>='a'&&*p<='z')
+        printf("Lower case");
+       else
+        printf("Upper case");
+    }
+    else
+        printf("Not an alphabet");
+}
