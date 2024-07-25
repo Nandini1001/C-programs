@@ -1,0 +1,67 @@
+#include<stdio.h>
+int sum(int);
+int rev(int);
+void main()
+{
+    FILE *p, *q,*r;
+    p=fopen("Data.txt","w+");
+    q=fopen("sumdgt.txt","w+");
+    r=fopen("rev.txt", "w+");
+    if(p!=NULL&&q!=NULL&&r!=NULL)
+    {
+        int n,nm,i,z;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&nm);
+            fprintf(p,"%d ",nm);
+        }
+        rewind(p);
+        while((fscanf(p,"%d",&nm))!=EOF)
+        {
+            if(nm%5==0)
+            {
+                z=sum(nm);
+                fprintf(q,"%d ",z);
+            }
+            else
+            {
+                z=rev(nm);
+                fprintf(r, "%d ",z);
+            }
+        }
+        rewind(q);
+        rewind(r);
+        while((fscanf(q,"%d",&nm))!=EOF)
+            printf("sum are %d ",nm);
+        while ((fscanf(r, "%d",&nm))!=EOF)
+            printf("rev are %d ",nm);
+    }
+    else
+        printf("NULL");
+    fclose(p);
+    fclose(q);
+    fclose(r);
+}
+int sum(int x)
+{
+    int r,s=0;
+    while(x>0)
+    {
+        r=x%10;
+        s=s+r;
+        x=x/10;
+    }
+    return s;
+}
+int rev(int x)
+{
+    int r,s=0;
+    while(x>0)
+    {
+        r=x%10;
+        s=s*10+r;
+        x=x/10;
+    }
+    return s;
+}
