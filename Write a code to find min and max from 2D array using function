@@ -1,0 +1,33 @@
+#include<stdio.h>
+void minmax(int[3][3]);
+void main()
+{
+    int n,m,i,j;
+    int a[3][3];
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            scanf("%d",&a[i][j]);
+
+        }
+    }
+    minmax(a);
+
+}
+void minmax(int a[3][3])
+{
+    int min,max,i,j;
+    min=max=a[0][0];
+    for(i=0;i<3;i++)
+    {
+        for(j=0;j<3;j++)
+        {
+            if(min>a[i][j])
+                min=a[i][j];
+            if(max<a[i][j])
+                max=a[i][j];
+        }
+    }
+    printf("%d%d",min,max);
+}
