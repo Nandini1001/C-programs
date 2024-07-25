@@ -1,0 +1,89 @@
+#include<stdio.h>
+struct student
+{
+     int rn,yr;
+     char n[50],d[50],c[50];
+};
+void name(struct student[],int);
+void data(struct student[],int);
+void main()
+{
+    int n,i;
+    printf("\t*****INPUT*****\n");
+    printf("Enter number of students: ");
+    scanf("%d",&n);
+    struct student s[n];
+    for(i=0;i<n;i++)
+    {
+        printf("Enter name of student %d: ",i+1);
+        getchar();
+        gets(s[i].n);
+        printf("Enter roll no of student %d: ",i+1);
+        scanf("%d",&s[i].rn);
+        printf("Enter year of joining of student %d: ",i+1);
+        scanf("%d",&s[i].yr);
+        printf("Enter name of course of student %d: ",i+1);
+        getchar();
+        gets(s[i].c);
+        printf("Enter name of department of student %d: ",i+1);
+        getchar();
+        gets(s[i].d);
+    }
+    printf("\t*****OUTPUT*****\n");
+    name(s,n);
+    data(s,n);
+}
+void name(struct student st[],int n)
+{
+    int year,i;
+    printf("Enter year of joining: ");
+    scanf("%d",&year);
+    printf("Name of Students who joined in %d are: ",year);
+    for(i=0;i<n;i++)
+    {
+        if(year==st[i].yr)
+           puts(st[i].n);
+    }
+}
+void data(struct student st[],int n)
+{
+    int r,i;
+    printf("Enter roll number of student whose data you have to search: ");
+    scanf("%d",&r);
+    printf("Data of student with roll number %d is: ",r);
+    for(i=0;i<n;i++)
+    {
+        if(r==st[i].rn)
+        {
+            printf("\nName is: ");
+            puts(st[i].n);
+            printf("Year of joining is: %d",st[i].yr);
+            printf("\nCourse is: ");
+            puts(st[i].c);
+            printf("Department is: ");
+            puts(st[i].d);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
