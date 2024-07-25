@@ -1,0 +1,24 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p;
+    char ch,c;
+    long int m,n,z;
+    p=fopen("Data.txt","r");
+    if(p!=NULL)
+    {
+       scanf("%c%ld%ld",&ch,&m,&n);
+       while((c=fgetc(p))!=EOF)
+       {
+           z=ftell(p);
+           if((z>m)&&(z<n))
+           {
+               if(ch==c)
+                printf("%ld",z);
+           }
+       }
+    }
+    else
+        printf("Error");
+    fclose(p);
+}
