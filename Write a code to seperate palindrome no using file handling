@@ -1,0 +1,46 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p,*q,*ra;
+    p=fopen("Data.txt","w+");
+    q=fopen("palin.txt","w+");
+     ra=fopen("nonpalin.txt","w+");
+    if(p!=NULL&&q!=NULL&&ra!=NULL)
+    {
+        int n,i,num,s,r,no;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&num);
+            fprintf(p,"%d ",num);
+        }
+        rewind(p);
+        for(i=0;i<n;i++)
+        {
+            s=0;
+            fscanf(p,"%d",&num);
+            no=num;
+            while(num>0)
+            {
+                r=num%10;
+                s=s*10+r;
+                num=num/10;
+            }
+            if(s==no)
+            fprintf(q,"%d ",s);
+            else
+                fprintf(ra,"%d ",no);
+        }
+        rewind(q);
+        rewind(ra);
+        while((fscanf(ra,"%d",&num))!=EOF)
+            printf("%d ",num);
+        while((fscanf(q,"%d",&num))!=EOF)
+            printf("%d ",num);
+    }
+    else{
+        printf("Error");
+    }
+    fclose(p);
+    fclose(q);
+}
