@@ -1,0 +1,41 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p,*q;
+    p=fopen("Data.txt","w+");
+    q=fopen("sumdgt.txt","w+");
+    if(p!=NULL&&q!=NULL)
+    {
+        int n,i,num,s,r;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&num);
+            fprintf(p,"%d ",num);
+        }
+        rewind(p);
+        for(i=0;i<n;i++)
+        {
+            s=0;
+            fscanf(p,"%d",&num);
+            while(num>0)
+            {
+                r=num%10;
+                s=s+r;
+                num=num/10;
+            }
+            fprintf(q,"%d ",s);
+        }
+        rewind(q);
+        for(i=0;i<n;i++)
+        {
+            fscanf(q,"%d",&num);
+            printf("%d ",num);
+        }
+    }
+    else{
+        printf("Error");
+    }
+    fclose(p);
+    fclose(q);
+}
