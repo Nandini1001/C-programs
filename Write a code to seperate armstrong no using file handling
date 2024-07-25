@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+    FILE *p,*q,*m;
+    p=fopen("Data.txt","w+");
+    q=fopen("arm.txt","w+");
+    m=fopen("nonarm.txt","w+");
+    if(p!=NULL&&q!=NULL&&m!=NULL)
+    {
+        int n,i,num,s,r,x,nm,z;
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            scanf("%d",&num);
+            fprintf(p,"%d ",num);
+        }
+        rewind(p);
+        for(i=0;i<n;i++)
+        {
+            s=0;
+            x=0;
+             fscanf(p,"%d",&num);
+            nm=num;
+            z=num;
+            while(nm>0)
+            {
+                nm=nm/10;
+                x++;
+            }
+
+            while(num>0)
+            {
+                r=num%10;
+                s=s+pow(r,x);
+                num=num/10;
+            }
+            if(s==z)
+            fprintf(q,"%d ",s);
+            else
+                fprintf(m,"%d ",z);
+        }
+        rewind(q);
+        rewind(m);
+        while((fscanf(q,"%d",&num))!=EOF)
+        {
+
+            printf("%d ",num);
+        }
+        while((fscanf(m,"%d",&num))!=EOF)
+        {
+
+            printf("%d ",num);
+        }
+    }
+    else{
+        printf("Error");
+    }
+    fclose(p);
+    fclose(q);
+}
+
