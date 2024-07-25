@@ -1,0 +1,16 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    char a[100],b[100];
+    int i,la,lb,ind,j;
+    gets(a);
+    gets(b);
+    la=strlen(a);
+    lb=strlen(b);
+    scanf("%d",&ind);
+    for(i=ind;i<la-lb;i++)
+        a[i]=a[i+lb+1];
+        a[la-lb]='\0';
+    puts(a);
+}
