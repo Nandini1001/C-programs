@@ -1,0 +1,32 @@
+#include<stdio.h>
+void main()
+{
+    FILE *p;
+    int rn,i,n;
+    char sec,na[40];
+    p=fopen("Data.txt","w+");
+    if(p!=NULL)
+    {
+        scanf("%d",&n);
+        for(i=0;i<n;i++)
+        {
+            getchar();
+            gets(na);
+            scanf("%d",&rn);
+            getchar();
+            scanf("%c",&sec);
+            fprintf(p,"%s %d %c ",na,rn,sec);
+        }
+        rewind(p);
+        while (fscanf(p, "%s%d %c",na,&rn,&sec) != EOF)
+        {
+            if(rn>10)
+            {
+                printf("%s %d %c",na,rn,sec);
+            }
+        }
+    }
+    else
+        printf("Error");
+    fclose(p);
+}
