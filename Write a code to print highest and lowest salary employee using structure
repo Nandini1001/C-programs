@@ -1,0 +1,37 @@
+#include<stdio.h>
+#include<stdlib.h>        //it is correct but not working on this compiler
+void main()
+{
+    int n,i,sma,smi,mai,mii;
+    scanf("%d",&n);
+    struct employee
+    {
+        char na[100];
+        int id,sa;
+    }e[n];
+    for(i=0;i<n;i++)
+    {
+        getchar();
+        scanf("%s",e[i].na);
+        scanf("%d",&e[i].id);
+        scanf("%d",&e[i].sa);
+    }
+    sma=e[0].sa;
+    smi=e[0].sa;
+    for(i=0;i<n;i++)
+    {
+
+        if(sma<e[i].sa)
+        {
+            sma=e[i].sa;
+            mai=i;
+        }
+        if(smi>e[i].sa)
+        {
+            smi=e[i].sa;
+            mii=i;
+        }
+    }
+    printf("Highest %s",e[mai].na);
+    printf("Lowest %s",e[mii].na);
+}
