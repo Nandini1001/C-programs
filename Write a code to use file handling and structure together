@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+void main()
+{
+    FILE *q;
+    int x=0,i,no;
+    q=fopen("Data.txt","w+");
+    if(q!=NULL)
+    {
+        struct book
+        {
+            char p[50],n[50];
+            int c,nu;
+        }b[3];
+        for(i=0;i<3;i++)
+        {
+            gets(b[i].p);
+            getchar();
+            gets(b[i].n);
+            scanf("%d",&b[i].c);
+            scanf("%d",&b[i].nu);
+            getchar();
+
+        }
+        for(i=0;i<3;i++)
+            fprintf(q,"%s %s %d %d",b[i].p,b[i].n,b[i].c,b[i].nu);
+        rewind(q);
+        char a[50]="oxford",pu[50];
+        for(i=0;i<3;i++)
+        {
+            fscanf(q, "%s %*s %*d %d", pu, &no);
+            if((strcmp(a,pu))==0)
+                x=x+no;
+        }
+        printf("%d",x);
+    }
+    else
+    printf("Error");
+    fclose(q);
+}
