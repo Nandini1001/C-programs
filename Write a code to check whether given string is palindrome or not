@@ -1,0 +1,19 @@
+#include<stdio.h>
+void main()
+{
+    char a[50];
+    int k=0,l,i;
+    gets(a);
+    for(l=0;a[l]!='\0';l++);
+    for(i=0;i<l/2;i++)
+    {
+        if(a[i]==a[l-i-1])
+            continue;
+        else{k++;
+        break;}
+    }
+    if(k==0)
+        printf("Y");
+    else
+        printf("n");
+}
