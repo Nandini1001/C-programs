@@ -1,0 +1,25 @@
+#include <stdio.h>
+void main() {
+    // Write C code here
+    int n,m,j;
+    scanf("%d%d",&n,&m);
+    int a[n][m],i,s=0;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<m;j++)
+        {
+        printf("Enter a[%d][%d]",i,j);
+        scanf("%d",&a[i][j]);
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        for(j=0;j<m;j++)
+        {
+            s=s+a[i][j];
+
+        }
+         printf("sum of %d row is %d",i+1,s);
+    }
+}
