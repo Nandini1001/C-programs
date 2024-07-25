@@ -1,0 +1,24 @@
+#include<stdio.h>
+void main()
+{
+    char a[100],k;
+    int i,j;
+    printf("Enter a string");
+    gets(a);
+    printf("Enter a character to dlt");
+    scanf("%c",&k);
+    for(i=0;a[i]!=0;i++)
+    {
+        if(a[i]==k)
+        {
+            for(j=i;a[j]!=0;j++)
+                a[j]=a[j+1];
+            i--;
+        }
+
+    }
+
+    printf("Editted string is ");
+    puts(a);
+}
+
