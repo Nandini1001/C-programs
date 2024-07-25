@@ -1,0 +1,18 @@
+#include<stdio.h>
+void main()
+{
+    char a[100];
+    int i;
+    printf("Enter a string: ");
+    fgets(a,100,stdin);
+    printf("Strings or words after split by space are:\n");
+    for(i=0;a[i]!='\0';i++)
+    {
+        if(a[i]==32)
+        {
+            printf("\n");
+            i++;
+        }
+        printf("%c",a[i]);
+    }
+}
