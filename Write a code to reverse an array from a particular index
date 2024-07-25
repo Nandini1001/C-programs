@@ -1,0 +1,33 @@
+#include<stdio.h>
+void main()
+{
+    int n,*p,i,t,ind,j=0;
+    printf("\t*****INPUT*****\n");
+    printf("Enter size of an array: ");
+    scanf("%d",&n);
+    p=(int*)(malloc(n*sizeof(int)));
+    if(p==NULL)
+        printf("Memory not allocated");
+    else
+    {
+        for(i=0;i<n;i++)
+        {
+            printf("Enter element %d: ",i+1);
+            scanf("%d",(p+i));
+        }
+        printf("Enter index: ");
+        scanf("%d",&ind);
+        for(i=ind;i<((n-ind)/2)+ind;i++)
+        {
+            t=*(p+i);
+            *(p+i)=*(p+n-1-j);
+            *(p+n-1-j)=t;
+            j++;
+        }
+        printf("\t*****OUTPUT*****\n");
+        printf("Elements after reverse are: ");
+        for(i=0;i<n;i++)
+                printf("%d ",*(p+i));
+        free(p);
+    }
+}
