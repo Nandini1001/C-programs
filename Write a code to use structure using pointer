@@ -1,0 +1,30 @@
+#include<stdio.h>
+struct student
+    {
+        char n[50],sec;
+        int rn;
+    };
+void print (struct student *);
+void main()
+{
+    int i;
+    struct student s[2];
+    for(i=0;i<2;i++)
+    {
+        gets(s[i].n);
+        scanf(" %c",&s[i].sec);
+        scanf("%d",&s[i].rn);
+        getchar();
+    }
+    print(s);
+
+}
+void print (struct student *p)
+{
+    int i;
+    for(i=0;i<2;i++)
+    {
+        puts((p+i)->n);
+        printf("%c %d",(p+i)->sec,(p+i)->rn);
+    }
+}
