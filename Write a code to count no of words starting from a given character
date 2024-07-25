@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<stdlib.h>
+void main()
+{
+    char *p,k;
+    int i,c=0,n;
+    scanf("%d",&n);
+    p=(char*)(malloc((n+1)*sizeof(char)));
+    if(p==NULL)
+        printf("No");
+    else
+    {
+        getchar();
+        gets(p);
+        //getchar();
+        scanf("%c",&k);
+        if(*(p+0)==k)
+            c++;
+
+        for(i=0;*(p+i)!=0;i++)
+        {
+            if(*(p+i)==32&&*(p+i+1)==k)
+                c++;
+
+        }
+        printf("%d",c);
+    }
+    free(p);
+}
