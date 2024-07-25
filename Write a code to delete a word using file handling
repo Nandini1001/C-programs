@@ -1,0 +1,37 @@
+#include<stdio.>
+#include<string.h>
+void main()
+{
+    FILE *P,*q;
+    int n=0,m=0,i=0;
+    p=fopen("Data.txt","w+");
+    q=fopen("word.txt","w+");
+    if(p!=NULL&&q!=NULL)
+    {
+        while((ch=getchar())!=EOF)
+          {
+
+            fputc(ch,p);
+            n++;}
+        while((ch=getchar())!=EOF)
+            {fputc(ch,q);
+            m++}
+         char a[n],b[m];
+        while((ch=fgetc())!=EOF)
+        {
+            a[i]=ch;
+            i++;
+        }
+         while((ch=fgetc())!=EOF)
+        {
+            b[i]=ch;
+            i++;
+        }
+        z=strstr(a,b);
+        for(i=z;i<n-m;i++)
+        a[i]=a[i+m+1];
+        a[n-m]='\0';
+        for(i=0;a[i]!=0;i++)
+            printf("%c",a[i]);
+    }
+}
