@@ -1,0 +1,45 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+#define f1 "E://1.mp3"
+#define f2 "E://2.mp3"
+int main()
+{
+    FILE *dfp,*sfp;
+    int i;
+    char ch;
+    char path[2][20]={f1,f2};
+    dfp=fopen("E://3.mp3","wb");
+    if(dfp==NULL)
+    {
+        printf("Destination file not open");
+        return EXIT_FAILURE;
+
+    }
+    else
+    {
+        for(i=0;i<2;i++)
+        {
+            sfp=fopen(path[i],"rb");
+            if(sfp==NULL)
+            {
+                printf("File not open");
+                return EXIT_FAILURE;
+
+            }
+            else
+            {
+               while(1)
+               {
+                   ch=fgetc(sfp);
+                   if(feof(sfp))
+                        break;
+                   fputc(ch,dfp);
+               }
+            }
+            fclose(sfp);
+        }
+    }
+    fclose(dfp);
+    return EXIT_SUCCESS;
+}
