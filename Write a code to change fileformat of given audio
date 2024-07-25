@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+int main()
+{
+    FILE *dfp,*sfp;
+    char ch;
+    dfp=fopen("E://5.ogg","wb");
+    if(dfp==NULL)
+    {
+        printf("Destination file not open");
+        return EXIT_FAILURE;
+
+    }
+    else
+    {
+        sfp=fopen("E://4.mp3","rb");
+        if(sfp==NULL)
+        {
+            printf("File not open");
+            return EXIT_FAILURE;
+        }
+        else
+        {
+            while(1)
+            {
+                ch=fgetc(sfp);
+                if(feof(sfp))
+                    break;
+                fputc(ch,dfp);
+            }
+            printf("Merge successfully");
+        }
+        fclose(sfp);
+    }
+    fclose(dfp);
+    return EXIT_SUCCESS;
+}
+
