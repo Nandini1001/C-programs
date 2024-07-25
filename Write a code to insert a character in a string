@@ -1,0 +1,17 @@
+#include<stdio.h>
+void main()
+{
+    char a[100],k;
+    int i,ind,l;
+    printf("Enter a string");
+    gets(a);
+    printf("Enter a character to insert and also at which index");
+    scanf("%c%d",&k,&ind);
+    for(l=0;a[l]!='\0';l++);
+    for(i=l;i>=ind;i--)
+    {
+        a[i+1]=a[i];
+    }
+    a[ind]=k;
+        printf("Editted string is %s",a);
+}
