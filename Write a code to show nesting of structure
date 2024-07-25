@@ -1,0 +1,20 @@
+#include<stdio.h>
+void main()
+{
+   /*1 struct dob
+        {
+            int d,m,y;
+        };*/
+    struct student
+    {
+        int rn;
+        char sec,n[50];
+        //1struct dob d1;
+        /*struct dob
+        {
+            int d,m,y;
+        }d1;*/
+    }s;
+    scanf("%d %d %d",&s.d1.d,&s.d1.m,&s.d1.y);
+    printf("%d %d %d",s.d1.d,s.d1.m,s.d1.y);
+}
