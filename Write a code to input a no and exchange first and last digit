@@ -1,0 +1,23 @@
+#include<stdio.h>
+void main()
+{
+    int num,d=0,n;
+    scanf("%d",&num);
+    n=num;
+    while(num>0)
+    {
+        d++;
+        num=num/10;
+    }
+    int a[d],i,t;
+    for(i=d-1;i>=0;i--)
+    {
+        a[i]=n%10;
+        n=n/10;
+    }
+    t=a[d-1];
+    a[d-1]=a[0];
+    a[0]=t;
+    for(i=0;i<d;i++)
+        printf("%d",a[i]);
+}
