@@ -1,0 +1,48 @@
+//not working
+#include<stdio.h>
+struct bankacc
+    {
+        long int no,bal;
+        char n[50],t[50];
+    };
+void withdraw(struct bankacc[],int);
+void deposit(struct bankacc[],int);
+void main()
+{
+    int n,o,i;
+    scanf("%d",&n);
+    struct bankacc b[n];
+    for(i=0;i<n;i++)
+    {
+        getchar();
+        scanf("%s%s%ld%ld",b[i].n,b[i].t,&b[i].no,&b[i].bal);
+
+    printf("Press 1 to withdraw and 2 to deposit");
+    scanf("%d",&o);
+    if(o==1)
+        withdraw(b,n);
+    else if(o==2)
+        deposit(b,n);
+    else
+        printf("error");}
+
+}
+void withdraw(struct bankacc b[],int n)
+{
+    int w,i;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&w);
+        printf("%d",b[i].bal-w);
+    }
+}
+void deposit(struct bankacc b[],int n)
+{
+    int d,i;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&d);
+        printf("%d",b[i].bal+d);
+    }
+}
+
