@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+void element(int[],int);
+void main()
+{
+    int n,*p,i;
+    scanf("%d",&n);
+    p=(int*)malloc(n*sizeof(int));
+    if(p==NULL)
+        printf("Memory not allocated");
+    else
+    {
+        for(i=0;i<n;i++)
+            scanf("%d",(p+i));
+        element(p,n);
+    }
+}
+void element(int a[],int n)
+{
+    int i,z,j,c=0,k;
+    for(i=0;i<n;i++)
+    {
+        z=0;
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]==a[j])
+            {
+                z=1;
+                for(k=j;k<n-1;k++)
+                    a[k]=a[k+1];
+                n--;
+                break;
+            }
+        }
+        if(z==1)
+            c++;
+        if(c==4)
+        {
+            printf("%d",a[i]);
+            break;
+        }
+    }
+}
