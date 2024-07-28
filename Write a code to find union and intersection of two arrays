@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<stdlib.h>
+void unionn(int[],int[],int,int);
+void intersect(int[],int[],int,int);
+void main()
+{
+    int n,i,m,*p,*q;
+    scanf("%d%d",&n,&m);
+    p=(int*)malloc(n*sizeof(int));
+    q=(int*)malloc(m*sizeof(int));
+    if((p==NULL)&&(q==NULL))
+        printf("Memory not allocated");
+    else
+    {
+        for(i=0;i<n;i++)
+            scanf("%d",(p+i));
+        for(i=0;i<m;i++)
+            scanf("%d",(q+i));
+        unionn(p,q,n,m);
+        intersect(p,q,n,m);
+    }
+}
+void unionn(int a[],int b[],int n,int m)
+{
+    int i,c[m+n],j,k=n,z;
+    for(i=0;i<n;i++)
+    {
+        c[i]=a[i];
+    }
+    for(i=0;i<m;i++)
+    {
+        z=0;
+        for(j=0;j<n;j++)
+        {
+            if(b[i]==a[j])
+            {
+                z=1;
+                break;
+            }
+        }
+        if(z==0)
+        {
+            c[k]=b[i];
+            k++;
+        }
+    }
+    printf("UNion is: ");
+    for(i=0;i<k;i++)
+        printf("%d ",c[i]);
+
+}
+void intersect(int a[],int b[],int n,int m)
+{
+    int i,z,k=0,j,c[m+n];
+    for(i=0;i<m;i++)
+    {
+        z=0;
+        for(j=0;j<n;j++)
+        {
+            if(b[i]==a[j])
+            {
+                z=1;
+                break;
+            }
+        }
+        if(z==1)
+        {
+            c[k]=b[i];
+            k++;
+        }
+    }
+    printf("\nIntersection is: ");
+    for(i=0;i<k;i++)
+        printf("%d ",c[i]);
+}
