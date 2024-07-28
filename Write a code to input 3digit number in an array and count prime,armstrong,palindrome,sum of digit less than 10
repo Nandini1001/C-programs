@@ -1,0 +1,106 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+void prime(int[],int);
+void armstrong(int[],int);
+void sumdgt(int[],int);
+void palindrome(int[],int);
+void main()
+{
+    int n,*p,i;
+    scanf("%d",&n);
+    p=(int*)malloc(n*sizeof(int));
+    if(p==NULL)
+        printf("Memory not allocated");
+    else
+    {
+        for(i=0;i<n;i++)
+            scanf("%d",(p+i));
+        prime(p,n);
+        armstrong(p,n);
+        palindrome(p,n);
+        sumdgt(p,n);
+    }
+}
+void prime(int a[],int n)
+{
+    int i,j,c=0,s,num;
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        num=a[i];
+        for(j=2;j<=num/2;j++)
+        {
+            if(num%j==0)
+            {
+                s++;
+                break;
+            }
+        }
+        if(s==0)
+            c++;
+    }
+    printf("Prime are: %d",c);
+}
+void armstrong(int a[],int n)
+{
+    int i,num,c=0,s,x,nm,z,r;
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        x=0;
+        num=a[i];
+        nm=a[i];
+        z=a[i];
+        while(nm>0)
+        {
+            nm=nm/10;
+            x++;
+        }
+        while(num>0)
+        {
+            r=num%10;
+            s=s+pow(r,x);
+            num=num/10;
+        }
+        if(s==z)
+            c++;
+    }
+    printf("Armstrong are: %d",c);
+}
+void palindrome(int a[],int n)
+{
+    int i,s,num,no,r,c=0;
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        num=a[i];
+        no=num;
+        while(num>0)
+        {
+            r=num%10;
+            s=s*10+r;
+            num=num/10;
+        }
+        if(s==no)
+            c++;
+    }
+    printf("Palindrome: %d",c);
+}
+void sumdgt(int a[],int n)
+{
+    int c=0,s,m,i;
+    for(i=0;i<n;i++)
+    {
+        s=0;
+        m=a[i];
+        while(m>0)
+        {
+            s=s+m%10;
+            m=m/10;
+        }
+        if(s<10)
+            c++;
+    }
+    printf("Sum of digits is: %d",c);
+}
