@@ -51,7 +51,7 @@ void missing(int a[],int n)
     else
         printf("AP");
 }
-//to print only missing term
+//to print missing term and series
 void missing(int a[],int n)
 {
     int original_sum,sum,term,d;;
