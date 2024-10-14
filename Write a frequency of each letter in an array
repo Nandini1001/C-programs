@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-void freq(int [],int);
+//void freq(int [],int);
 void main()
 {
     int i,c,j,k,n,*p;
@@ -23,6 +23,7 @@ void main()
                         *(p+k)=*(p+k+1);
                     c++;
                     j--;
+                    n--;
                 }
             }
             printf("%d=%d",*(p+i),c);
