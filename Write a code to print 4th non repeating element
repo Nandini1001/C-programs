@@ -29,6 +29,7 @@ void element(int a[],int n)
                 for(k=j;k<n-1;k++)
                     a[k]=a[k+1];
                 n--;
+                j--;
             }
         }
         if(z==0)
